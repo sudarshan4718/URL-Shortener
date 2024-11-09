@@ -1,9 +1,12 @@
 const express = require("express");
 const path = require("path");
 const { connectToMongoDB } = require("./connect")
-const staticRoute = require("./routes/staticRouter")
+
 const URL = require("./models/url")
+
 const urlRoute = require('./routes/url')
+const staticRoute = require("./routes/staticRouter")
+const userRoute = require('./routes/user')
 
 const app = express();
 const PORT = 8001;
@@ -26,7 +29,8 @@ app.get("/test", async(req,res) => {
 
 
 
-app.use("/url", urlRoute)
+app.use("/url", urlRoute);
+app.use("/user", userRoute);
 app.use("/", staticRoute)
 
 
