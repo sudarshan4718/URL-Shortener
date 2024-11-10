@@ -20,6 +20,7 @@ async function handleGenerateNewShortURL (req, res) {
             shortId: short, 
             redirectURL: url,
             visitHistory: [],
+            createdBy: req.user._id,
         });
 
         return res.render("home", {
